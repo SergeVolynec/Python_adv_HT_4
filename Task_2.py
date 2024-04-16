@@ -4,11 +4,10 @@
 import typing
 
 
-def change_param(*, a, b) -> dict:
+def change_param(**kwargs) -> dict:
     """Функция меняет местами имя параметра и значение."""
-    params = locals()
     dict = {}
-    for k, v in params.items():
+    for k, v in kwargs.items():
         if isinstance(v, typing.Hashable):
             dict[v] = k
         else:
